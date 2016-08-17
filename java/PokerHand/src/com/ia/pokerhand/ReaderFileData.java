@@ -82,18 +82,19 @@ public class ReaderFileData {
 		    	}
 		    	try {
 		    		Hand hand = getHand(parseInt(attributes));
-		    		if(data.containsInstance(hand)) {
-		    			if(repeatedInstances.containsKey(line)) {
-		    				List<Integer> numberOfLines = repeatedInstances.get(line);
-		    				numberOfLines.add(contLine);
-		    			} else {
-		    				List<Integer> numberOfLines = new ArrayList<>();
-		    				numberOfLines.add(contLine);
-		    				repeatedInstances.put(line, numberOfLines);
-		    			}
-		    		} else {
-		    			data.addInstance(hand);
-		    		}
+//		    		if(data.containsInstance(hand)) {
+//		    			if(repeatedInstances.containsKey(line)) {
+//		    				List<Integer> numberOfLines = repeatedInstances.get(line);
+//		    				numberOfLines.add(contLine);
+//		    			} else {
+//		    				List<Integer> numberOfLines = new ArrayList<>();
+//		    				numberOfLines.add(contLine);
+//		    				repeatedInstances.put(line, numberOfLines);
+//		    			}
+//		    		} else {
+//		    			data.addInstance(hand);
+//		    		}
+		    		data.addInstance(hand);
 		    	} catch (NumberFormatException e) {
 		    		inconsistentData.put(contLine, line);
 		    	} catch (InconsistentDataException e) {

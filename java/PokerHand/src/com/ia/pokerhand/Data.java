@@ -19,6 +19,22 @@ public class Data {
 		initializesInstancesPerClass();
 	}
 	
+	public List<Hand> getInstances() {
+		return instances;
+	}
+
+	public void setInstances(List<Hand> instances) {
+		this.instances = instances;
+	}
+
+	public Map<TypeOfHand, List<Hand>> getInstancesPerClass() {
+		return instancesPerClass;
+	}
+
+	public void setInstancesPerClass(Map<TypeOfHand, List<Hand>> instancesPerClass) {
+		this.instancesPerClass = instancesPerClass;
+	}
+	
 	private void initializesInstancesPerClass() {
 		instancesPerClass = new HashMap<>();
 		for(int i = 0; i < 10; i++) {
