@@ -1,4 +1,4 @@
-package com.ia.pokerhand.classifiers;
+/*package com.ia.pokerhand.classifiers;
 
 import java.util.Collections;
 import java.util.List;
@@ -56,4 +56,4 @@ public class NaiveBayesClassifier {
 
 	}
 
-}
+}*/

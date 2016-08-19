@@ -1,13 +1,22 @@
 package com.ia.pokerhand;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.ia.pokerhand.model.Card;
+import com.ia.pokerhand.model.Data;
+import com.ia.pokerhand.model.Hand;
+import com.ia.pokerhand.model.Rank;
+import com.ia.pokerhand.model.Suit;
+import com.ia.pokerhand.model.TypeOfHand;
 
 public class ReaderFileData {
 	
@@ -70,6 +79,7 @@ public class ReaderFileData {
 		try {
 			Data data = new Data(numberOfInstances);
 			BufferedReader br = new BufferedReader(new FileReader(file));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(new File(file.getName().concat(".clean"))));
 			int contLine = 1;
 		    String line = br.readLine();
 		    while (line != null) {
@@ -82,18 +92,20 @@ public class ReaderFileData {
 		    	}
 		    	try {
 		    		Hand hand = getHand(parseInt(attributes));
-//		    		if(data.containsInstance(hand)) {
-//		    			if(repeatedInstances.containsKey(line)) {
-//		    				List<Integer> numberOfLines = repeatedInstances.get(line);
-//		    				numberOfLines.add(contLine);
-//		    			} else {
-//		    				List<Integer> numberOfLines = new ArrayList<>();
-//		    				numberOfLines.add(contLine);
-//		    				repeatedInstances.put(line, numberOfLines);
-//		    			}
-//		    		} else {
-//		    			data.addInstance(hand);
-//		    		}
+		    		if(data.containsInstance(hand)) {
+		    			if(repeatedInstances.containsKey(line)) {
+		    				List<Integer> numberOfLines = repeatedInstances.get(line);
+		    				numberOfLines.add(contLine);
+		    			} else {
+		    				List<Integer> numberOfLines = new ArrayList<>();
+		    				numberOfLines.add(contLine);
+		    				repeatedInstances.put(line, numberOfLines);
+		    			}
+		    		} else {
+		    			bw.write(line);
+		    			data.addInstance(hand);
+		    		}
+		    		bw.write(line);
 		    		data.addInstance(hand);
 		    	} catch (NumberFormatException e) {
 		    		inconsistentData.put(contLine, line);

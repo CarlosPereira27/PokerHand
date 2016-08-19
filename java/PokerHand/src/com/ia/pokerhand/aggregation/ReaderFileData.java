@@ -10,7 +10,10 @@ import java.util.List;
 import java.util.Map;
 
 import com.ia.pokerhand.InconsistentDataException;
-import com.ia.pokerhand.TypeOfHand;
+import com.ia.pokerhand.aggregation.model.Card;
+import com.ia.pokerhand.aggregation.model.Data;
+import com.ia.pokerhand.aggregation.model.Hand;
+import com.ia.pokerhand.model.TypeOfHand;
 
 public class ReaderFileData {
 	

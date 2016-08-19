@@ -1,5 +1,7 @@
 package com.ia.pokerhand.aggregation;
 
+import com.ia.pokerhand.aggregation.model.Data;
+
 public class MainPokerHand {
 
 	/**
